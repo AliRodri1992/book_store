@@ -1,6 +1,4 @@
 es:
-  Store: 'Tienda'
-  Stores: 'Tiendas'
   activerecord:
     model:
       store:
