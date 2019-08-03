@@ -1,0 +1,18 @@
+div class="table-responsive"
+  table class="table"
+    thead class="text-primary"
+      - @columns.each do |column|
+        th = t('activerecord.attributes.store.' + column)
+      th.text-center Opciones
+    tbody
+      - unless @objects.blank?
+        - @objects.each do |object|
+          tr
+            - @columns.each do |column|
+              td  = object[column]
+      - else
+        tr
+          - if @class_name == "Store"
+            td.text-center colspan="4" No existen registros de tiendas.
+          - else
+            td.text-center colspan="4" No exiten registros de libros.
