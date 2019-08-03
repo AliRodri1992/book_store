@@ -1,0 +1,13 @@
+es:
+  Store: 'Tienda'
+  Stores: 'Tiendas'
+  activerecord:
+    model:
+      store:
+        one: "Tienda"
+        other: "Tiendas"
+    attributes:
+      store:
+        codename: "Nombre Clave"
+        address: "Dirección"
+        phone: "Teléfono"
