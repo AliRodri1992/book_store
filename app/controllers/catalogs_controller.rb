@@ -1,5 +1,7 @@
 # Description/Explanation of Person class
 class CatalogsController < ApplicationController
+  before_action :set_catalog, only: [:edit, :show, :update, :destroy, :find]
+
   include WordsHelper
   def index
     @class_name = params[:class_name]
@@ -13,8 +15,6 @@ class CatalogsController < ApplicationController
   end
 
   def show
-    @class_name = params[:class_name]
-    @object = Kernel.const_get(@class_name).find(params[:id])
     @render = @class_name.underscore.pluralize.downcase + "/show"
   end
 
@@ -25,13 +25,10 @@ class CatalogsController < ApplicationController
   end
 
   def edit
-    @class_name = params[:class_name]
     @render = @class_name.underscore.pluralize.downcase + "/form"
-    @object = Kernel.const_get(@class_name).find(params[:id])
   end
 
   def find
-    @class_name = params[:class_name]
     @object = Kernel.const_get(@class_name).find(params[:id])
   end
 
@@ -48,9 +45,7 @@ class CatalogsController < ApplicationController
   end
 
   def update
-    @class_name = params[:class_name]
     @render = @class_name.underscore.pluralize.downcase + "/form"
-    @object = Kernel.const_get(@class_name).find(params[:id])
     @create = false
     translate_word = t("activerecord.model." + @class_name.downcase + ".one")
     if @object.update(catalog_params)
@@ -60,8 +55,6 @@ class CatalogsController < ApplicationController
   end
 
   def destroy
-    @class_name = params[:class_name]
-    @object = Kernel.const_get(@class_name).find(params[:id])
     @object.destroy
     translate_word = t("activerecord.model." + @class_name.downcase + ".one")
     flash[:success] = "#{translate_word} #{change_word('destroy', translate_word)} correctamente."
@@ -75,5 +68,10 @@ class CatalogsController < ApplicationController
     exclude_columns  = %w[id created_at update_at]
     columns -= exclude_columns
     params.require(class_name.downcase).permit(columns)
+  end
+
+  def set_catalog
+    @class_name = params[:class_name]
+    @object = Kernel.const_get(@class_name).find(params[:id])
   end
 end
