@@ -16,7 +16,7 @@ function show_content_modal(title, action) {
         $("#btn_modal_eliminar").hide();
         $("#modal_title_catalogos" ).html(title);
     } else if (action == 'delete') {
-        title = "Confirmar Eliminación de Registro";
+        title = "Eliminar " + title;
         $("#btn_modal_guardar").hide();
         $("#btn_modal_cerrar").hide();
         $("#btn_modal_actualizar").hide();

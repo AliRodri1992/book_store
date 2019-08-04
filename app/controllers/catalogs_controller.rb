@@ -30,6 +30,11 @@ class CatalogsController < ApplicationController
     @object = Kernel.const_get(@class_name).find(params[:id])
   end
 
+  def find
+    @class_name = params[:class_name]
+    @object = Kernel.const_get(@class_name).find(params[:id])
+  end
+
   def create
     @class_name = params[:class_name]
     @render = @class_name.pluralize.downcase + "/form"
@@ -52,6 +57,14 @@ class CatalogsController < ApplicationController
       @create = true
       flash[:success] = "#{translate_word} #{change_word('update', translate_word)} correctamente."
     end
+  end
+
+  def destroy
+    @class_name = params[:class_name]
+    @object = Kernel.const_get(@class_name).find(params[:id])
+    @object.destroy
+    translate_word = t("activerecord.model." + @class_name.downcase + ".one")
+    flash[:success] = "#{translate_word} #{change_word('destroy', translate_word)} correctamente."
   end
 
   private

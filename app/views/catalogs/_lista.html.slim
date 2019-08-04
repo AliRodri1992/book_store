@@ -15,6 +15,8 @@ div class="table-responsive"
                 = icon('fas', 'eye', class: 'text-success')
               = link_to({action: :edit, controller: :catalogs, class_name: @class_name, id: object.id}, remote: true) do
                 = icon('fas', 'pencil-alt', class: 'text-info pl-2')
+              = link_to({action: :find, controller: :catalogs, class_name: @class_name, id: object.id}, remote: true) do
+                = icon('fas', 'trash', class: 'text-danger pl-2')
 
       - else
         tr
