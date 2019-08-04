@@ -1,5 +1,5 @@
 div class="table-responsive"
-  table class="table"
+  table.table.table-sm
     thead class="text-primary"
       - @columns.each do |column|
         th = t('activerecord.attributes.store.' + column)
@@ -24,3 +24,10 @@ div class="table-responsive"
             td.text-center colspan="4" No existen registros de tiendas.
           - else
             td.text-center colspan="4" No exiten registros de libros.
+div.clearfix
+  div.hint-text
+    - unless  @objects.blank?
+      p Mostrando #{@objects.size} #{@objects.size > 1 ? ' resultados' : ' resultado'}
+    - else
+      p Mostrando 0 resultados
+= paginate @objects, left: 1, right: 3
