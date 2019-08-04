@@ -13,6 +13,8 @@ div class="table-responsive"
             td.text-center
               = link_to({action: :show, controller: :catalogs, class_name: @class_name, id: object.id}, remote: true) do
                 = icon('fas', 'eye', class: 'text-success')
+              = link_to({action: :edit, controller: :catalogs, class_name: @class_name, id: object.id}, remote: true) do
+                = icon('fas', 'pencil-alt', class: 'text-info pl-2')
 
       - else
         tr

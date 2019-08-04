@@ -24,6 +24,12 @@ class CatalogsController < ApplicationController
     @object = Kernel.const_get(@class_name).new
   end
 
+  def edit
+    @class_name = params[:class_name]
+    @render = @class_name.underscore.pluralize.downcase + "/form"
+    @object = Kernel.const_get(@class_name).find(params[:id])
+  end
+
   def create
     @class_name = params[:class_name]
     @render = @class_name.pluralize.downcase + "/form"
@@ -33,6 +39,18 @@ class CatalogsController < ApplicationController
     if @object.save
       @create = true
       flash[:success] = "#{translate_word} #{change_word('create', translate_word)} exitosamente."
+    end
+  end
+
+  def update
+    @class_name = params[:class_name]
+    @render = @class_name.underscore.pluralize.downcase + "/form"
+    @object = Kernel.const_get(@class_name).find(params[:id])
+    @create = false
+    translate_word = t("activerecord.model." + @class_name.downcase + ".one")
+    if @object.update(catalog_params)
+      @create = true
+      flash[:success] = "#{translate_word} #{change_word('update', translate_word)} correctamente."
     end
   end
 
