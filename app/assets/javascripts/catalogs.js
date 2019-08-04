@@ -1,5 +1,4 @@
 function show_content_modal(title, action) {
-    title = get_title(title);
     if (action == 'create') {
         title = "Registrar " + title;
         $("#btn_modal_guardar").show();
@@ -33,14 +32,6 @@ function show_content_modal(title, action) {
         $("#btn_modal_cancelar").hide();
         $("#modal_title_catalogos" ).html(title);
     }
-}
-function get_title(title) {
-    if (title == "Tienda" ) {
-        title = 'Tiendas';
-    } else {
-        title = "Libros";
-    }
-    return title;
 }
 
 $(document).ready(function(){

@@ -10,6 +10,10 @@ div class="table-responsive"
           tr
             - @columns.each do |column|
               td  = object[column]
+            td.text-center
+              = link_to({action: :show, controller: :catalogs, class_name: @class_name, id: object.id}, remote: true) do
+                = icon('fas', 'eye', class: 'text-success')
+
       - else
         tr
           - if @class_name == "Store"

@@ -12,6 +12,12 @@ class CatalogsController < ApplicationController
     @columns = object.get_index_columns
   end
 
+  def show
+    @class_name = params[:class_name]
+    @object = Kernel.const_get(@class_name).find(params[:id])
+    @render = @class_name.underscore.pluralize.downcase + "/show"
+  end
+
   def new
     @class_name = params[:class_name]
     @render = @class_name.underscore.pluralize.downcase + "/form"
