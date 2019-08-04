@@ -1,8 +1,10 @@
-show_content_modal("<%= t("activerecord.model.store.one") %>", 'delete');
+show_content_modal("<%= t("activerecord.model." + @class_name.downcase + ".one") %>", 'delete');
 $("#modalCatalogos").modal("show");
 <% case(@class_name) %>
 <% when 'Store' %>
   $("#modal_catalogos_content").html("<h5>¿Está seguro que desea eliminar el registro <strong><%= @object.codename %></strong> de la tabla?</h5>");
+<% when 'Book' %>
+$("#modal_catalogos_content").html("<h5>¿Está seguro que desea eliminar el registro <strong><%= @object.title %></strong> de la tabla?</h5>");
 <% end %>
 
 $("#btn_modal_eliminar").click(function () {
