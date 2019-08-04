@@ -16,7 +16,7 @@ div.row
     div.col-lg-12.pr-1
       div.form-group
         label Nombre Clave
-        = text_field :store, :codename, class: 'form-control', placeholder: 'Ingrese el nombre clave de la tienda.', value: @object.codename
+        = text_field :store, :codename, maxlength: 25, class: 'form-control', placeholder: 'Ingrese el nombre clave de la tienda.', value: @object.codename
         div.text-error-form id="div_errors_for_store_codename"
           - for e_array in errors_for_codename
             javascript:
@@ -28,7 +28,7 @@ div.row
     div.col-lg-12.pr-1
       div.form-group
         label Dirección
-        = text_field :store, :address, class: 'form-control', placeholder: 'Ingrese la dirección de la tienda.', value: @object.address
+        = text_field :store, :address, maxlength: 50, class: 'form-control', placeholder: 'Ingrese la dirección de la tienda.', value: @object.address
         div.text-error-form id="div_errors_for_store_address"
           - for e_array in errors_for_address
             javascript:
@@ -40,7 +40,7 @@ div.row
     div.col-lg-12.pr-1
       div.form-group
         label Telefono
-        = text_field :store, :phone, class: 'form-control', placeholder: 'Ingrese el teléfono de la tienda.', value: @object.phone
+        = text_field :store, :phone, maxlength: 15, class: 'form-control', placeholder: 'Ingrese el teléfono de la tienda.', value: @object.phone
         div.text-error-form id="div_errors_for_store_phone"
           - for e_array in errors_for_phone
             javascript:
