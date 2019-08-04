@@ -21,6 +21,10 @@ gem 'jquery-turbolinks'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'factory_bot'
+  gem 'faker'
+  gem "database_cleaner"
+  gem "shoulda-matchers", require: false
 end
 
 group :development do
@@ -34,7 +38,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
-  gem 'factory_girl_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
