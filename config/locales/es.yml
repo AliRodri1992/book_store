@@ -21,6 +21,7 @@ es:
         store:
           attributes:
             codename:
+              taken: "Nombre clave existente."
               blank: "Nombre clave no puede estar vacío."
               too_short: "Nombre clave demasiado corto (5 caracteres mínimo)."
               invalid: "Nombre clave no puede contener caracteres especiales."

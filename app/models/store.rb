@@ -6,6 +6,8 @@ class Store < ApplicationRecord
   validates :address, :length => { :minimum => 10 }, allow_blank: true
   validates :phone, :length => { :minimum => 6 }, allow_blank: true
 
+  validates_uniqueness_of :codename, case_sensitive: false, allow_blank: true
+
   validates_format_of :codename, with: /^([a-z A-ZñáéíóúÑÁÉÍÓÚ[0-9]\s]+)$/, multiline: true, :allow_blank => true
   validates_format_of :phone, with: /^([[0-9]\s]+)$/, multiline: true, :allow_blank => true
 
