@@ -1,0 +1,20 @@
+div.row
+  div.col-lg-12
+    div  class="message alert #{class_name} alert-dismissable text-center" role="alert"
+      button type="button" class="close" data-dismiss="alert"
+        span aria-hiden="true" x
+        span class="sr-only" close
+      - if defined?(msg_title) && msg_title.present?
+        h3.text-center #{upcase_with_accents(msg_title)}
+      - if msg.instance_of?(Array)
+        - msg.each do |m|
+          = m
+          br
+      - else
+        = msg
+javascript:
+    $(document).ready(function () {
+        setTimeout(function () {
+            $(".message").fadeOut(1500);
+        }, 3000);
+    });

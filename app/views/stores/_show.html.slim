@@ -1,0 +1,16 @@
+table.table.table-bordered.table-sm.th-view
+  tbody
+    tr
+      td.text-center colspan="12" Información de la Tienda
+    tr
+      th.text-right colspan="3" Nombre Clave
+      td colspan="9"
+        = @object.codename
+    tr
+      th.text-right colspan="3" Dirección
+      td colspan="9"
+        = @object.address
+    tr
+      th.text-right colspan="3" Teléfono
+      td colspan="9"
+        = @object.phone

@@ -12,3 +12,13 @@
  *
  */
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.text-error-form {
+  text-align: left;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}

@@ -10,11 +10,21 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'jquery-rails'
+gem 'popper_js'
 gem 'bootstrap'
+gem 'slim-rails'
+gem 'font-awesome-sass'
+gem 'kaminari'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem "database_cleaner"
+  gem "shoulda-matchers", require: false
 end
 
 group :development do
@@ -28,7 +38,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
-  gem 'factory_girl_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Store Book
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    div id="flash_messages_div"
+      = render 'shared/flash_messages'
+    div class="container-fluid"
+      div class="row"
+        div class="col-lg-12"
+          div class="card card-user"
+            = yield
+    = render 'shared/modal'

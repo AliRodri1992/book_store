@@ -1,0 +1,3 @@
+show_content_modal("<%= t("activerecord.model.store.one") %>", 'edit');
+$("#modalCatalogos").modal("show");
+$("#modal_catalogos_content").html("<%= j render partial: "#{@render}", locals: {accion: 'update'} %>");
