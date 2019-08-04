@@ -9,3 +9,16 @@ es:
         codename: "Nombre Clave"
         address: "Dirección"
         phone: "Teléfono"
+    errors:
+      models:
+        store:
+          attributes:
+            codename:
+              blank: "Nombre clave no puede estar vacío."
+              too_short: "Nombre clave demasiado corto (5 caracteres mínimo)."
+              invalid: "Nombre clave no puede contener caracteres especiales."
+            address:
+              too_short: "Dirección demasiada corta (10 caracteres mínimo)."
+            phone:
+              too_short: "Teléfono demasiado corto (6 caracteres mínimo)."
+              invalid: "Teléfono no puede conterner letras ni caracteres especiales."

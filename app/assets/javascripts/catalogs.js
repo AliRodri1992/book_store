@@ -42,3 +42,13 @@ function get_title(title) {
     }
     return title;
 }
+
+$(document).ready(function(){
+    $("#btn_modal_guardar").click(function () {
+        $('#btn-origen-guardar').trigger( "click" );
+    });
+
+    $("#btn_modal_actualizar").click(function () {
+        $('#btn-origen-guardar').trigger( "click" );
+    });
+});

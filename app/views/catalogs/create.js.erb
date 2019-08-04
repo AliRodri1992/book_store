@@ -1,3 +1,5 @@
-show_content_modal("<%= @clase %>", 'create');
-$("#modalCatalogos").modal("show");
+<% if @create == true %>
+  location.reload();
+<% else %>
 $("#modal_catalogos_content").html("<%= j render partial: "#{@render}", locals: {accion: 'create'} %>");
+<% end %>

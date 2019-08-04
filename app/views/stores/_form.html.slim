@@ -1,0 +1,54 @@
+- errors_for_codename = []
+- errors_for_address = []
+- errors_for_phone = []
+
+- for i in @object.errors.messages
+  - errors_for_codename << i[1] if i[0] == 'codename'.to_sym
+  - errors_for_address << i[1] if i[0] == 'address'.to_sym
+  - errors_for_phone << i[1] if i[0] == 'phone'.to_sym
+
+div.row
+  div.col-lg-12
+    h6.text-primary Ingrese la información requerida.
+    hr.hr-m
+= form_tag({action: accion, controller: :catalogs}, remote: true, id: "catalogos_form" ) do
+  div.row
+    div.col-lg-12.pr-1
+      div.form-group
+        label Nombre Clave
+        = text_field :store, :codename, class: 'form-control', placeholder: 'Ingrese el nombre clave de la tienda.', value: @object.codename
+        div.text-error-form id="div_errors_for_store_codename"
+          - for e_array in errors_for_codename
+            javascript:
+              $("#store_codename").addClass("is-invalid")
+            - for e in e_array
+              = e
+              br
+  div.row
+    div.col-lg-12.pr-1
+      div.form-group
+        label Dirección
+        = text_field :store, :address, class: 'form-control', placeholder: 'Ingrese la dirección de la tienda.', value: @object.address
+        div.text-error-form id="div_errors_for_store_address"
+          - for e_array in errors_for_address
+            javascript:
+              $("#store_address").addClass("is-invalid")
+            - for e in e_array
+              = e
+              br
+  div.row
+    div.col-lg-12.pr-1
+      div.form-group
+        label Telefono
+        = text_field :store, :phone, class: 'form-control', placeholder: 'Ingrese el teléfono de la tienda.', value: @object.phone
+        div.text-error-form id="div_errors_for_store_phone"
+          - for e_array in errors_for_phone
+            javascript:
+              $("#store_phone").addClass("is-invalid")
+            - for e in e_array
+              = e
+              br
+
+  = hidden_field_tag :id, @object.id
+  = hidden_field_tag :class_name, @class_name
+  = submit_tag '', class: "btn btn-primary", id: 'btn-origen-guardar', style: "display: none;"
