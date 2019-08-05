@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :book do
-    title { "MyString" }
-    author { "MyString" }
-    year { 1 }
+    title { Faker::Book.title }
+    author { Faker::Book.author }
+    year { Faker::Number.between(from: 1900, to: 2030) }
   end
 end
