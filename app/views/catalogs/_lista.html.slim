@@ -2,7 +2,7 @@ div class="table-responsive"
   table.table.table-sm
     thead class="text-primary"
       - @columns.each do |column|
-        th = t('activerecord.attributes.store.' + column)
+        th = t('activerecord.attributes.' + @class_name.downcase + "." + column)
       th.text-center Opciones
     tbody
       - unless @objects.blank?
