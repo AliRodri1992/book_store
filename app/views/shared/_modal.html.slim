@@ -1,7 +1,7 @@
-div class="modal fade" id="modalCatalogos" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true"
+div class="modal fade modal-primary" id="modalCatalogos" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true"
   div class="modal-dialog modal-lg"
     div class="modal-content"
-      div class="modal-header"
+      div class="modal-header justify-content-center"
         h5  class="modal-title" id="modal_title_catalogos"
         button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"
           span aria-hidden="true" x
@@ -9,8 +9,8 @@ div class="modal fade" id="modalCatalogos" tabindex="-1" role="dialog" aria-labe
         div class="container-fluid"
           div id="modal_catalogos_content"
       div class="modal-footer"
-        a class="btn btn-outline-primary btn-round" href="#responsive" id="btn_modal_guardar" Guardar
-        a class="btn btn-outline-primary btn-round" href="#responsive" id="btn_modal_actualizar" Actualizar
-        a class="btn btn-outline-primary btn-round" href="#responsive" id="btn_modal_eliminar" Aceptar
-        = link_to 'Cerrar', '', class: "btn btn-outline-secondary btn-round", 'data-dismiss': "modal", id: 'btn_modal_cerrar'
-        = link_to 'Cancelar', '', class: "btn btn-outline-secondary btn-round", 'data-dismiss': "modal", id: 'btn_modal_cancelar'
+        a class="btn btn-wd btn-success btn-outline" href="#responsive" id="btn_modal_guardar" Guardar
+        a class="btn btn-wd btn-success btn-outline" href="#responsive" id="btn_modal_actualizar" Actualizar
+        a class="btn btn-wd btn-success btn-outline" href="#responsive" id="btn_modal_eliminar" Aceptar
+        = link_to 'Cerrar', '', class: "btn btn-wd btn-danger btn-outline", 'data-dismiss': "modal", id: 'btn_modal_cerrar'
+        = link_to 'Cancelar', '', class: "btn btn-danger btn-outline", 'data-dismiss': "modal", id: 'btn_modal_cancelar'

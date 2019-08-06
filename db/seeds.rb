@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 100.times do
   Store.create(codename: Faker::Company.name, address: Faker::Address.street_address)
+  Book.create(title: Faker::Book.title, author: Faker::Book.author, year: Faker::Number.between(from: 1900, to: 2030))
 end
