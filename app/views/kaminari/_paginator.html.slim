@@ -1,6 +1,6 @@
 = paginator.render do
-  nav aria-label="..."
-    ul.pagination.justify-content-center.mt-3.mr-3
+  div.dataTables_paginate.paging_full_numbers id="datatables_paginate"
+    ul.pagination
       == first_page_tag unless current_page.first?
       == prev_page_tag unless current_page.first?
       - each_page do |page|

@@ -7,9 +7,9 @@ class CatalogsController < ApplicationController
     @class_name = params[:class_name]
     object = Kernel.const_get(@class_name)
     @objects = if @class_name == "Store"
-                 object.order(:codename).page(params[:page])
+                 object.order(:codename)
                else
-                 object.order(:title).page(params[:page])
+                 object.order(:title)
                end
     @columns = object.get_index_columns
   end
