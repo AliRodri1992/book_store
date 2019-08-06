@@ -1,6 +1,4 @@
 class Book < ApplicationRecord
-  paginates_per 10
-
   validates :title, presence: true
   validates :title, :length => { :minimum => 5 }, allow_blank: true
   validates :author, :length => { :minimum => 5 }, allow_blank: true

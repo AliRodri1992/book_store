@@ -1,6 +1,4 @@
 class Store < ApplicationRecord
-  paginates_per 10
-
   validates :codename, presence: true
   validates :codename, :length => { :minimum => 5 }, allow_blank: true
   validates :address, :length => { :minimum => 10 }, allow_blank: true

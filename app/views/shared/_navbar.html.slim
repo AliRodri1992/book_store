@@ -1,0 +1,18 @@
+nav.navbar.navbar-expand-lg
+  div.container-fluid
+    div.navbar-wrapper
+      div.navbar-minimize
+        button id="minimizeSidebar" class="btn btn-warning btn-fill btn-round btn-icon d-none d-lg-block"
+          = icon('fas', 'ellipsis-v', class: 'visible-on-sidebar-regular')
+          = icon('fas', 'bars', class: 'visible-on-sidebar-mini')
+      a.navbar-brand href="/" Store
+    button.navbar-toggler.navbar-toggler-right type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation"
+      span.navbar-toggler-bar.burger-lines
+      span.navbar-toggler-bar.burger-lines
+      span.navbar-toggler-bar.burger-lines
+    div.collapse.navbar-collapse.justify-content-end
+      ul.nav.navbar-nav.mr-auto
+        form.navbar-form.navbar-left.navbar-search-form role="search"
+          div.input-group
+            = icon('fas', 'search')
+            input.form-control placeholder="Buscar..." type="text"

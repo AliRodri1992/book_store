@@ -1,13 +1,11 @@
-div class="card-header"
-  div class="row"
-    div class="col-md-6"
-      h5 class="card-title"
+div.col-md-12
+  div.card.data-tables
+    div.card-header
+      h4.card-title
         = 'Catalogo de ' + t("activerecord.model." + @class_name.downcase + ".other")
-    div class="col-md-6 d-flex"
-      div class="ml-auto"
-        a class="btn btn-success btn-round" data-remote="true" href="/catalogs/new?class_name=#{@class_name}" Registrar
-div class="card-body"
-  div class="row"
-    div class="col-md-12"
-      div id="lista"
-       = render 'lista'
+      p.card-category Lista de Registro
+    div.card-body.table-striped.table-no-bordered.table-hover.dataTable.dtr-inline.table-full-width
+      div.fresh-datatables
+        div.dataTables_wrapper.container-fluid.dt-bootstrap4 id="datatables_wrapper"
+          = render 'lista'
+
