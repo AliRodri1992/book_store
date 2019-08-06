@@ -6,3 +6,6 @@ div.col-md-12
           h4.card-title Resultados
     div.card-body id="cardBooks"
       = render 'books'
+    - unless @books.current_page == @books.total_pages
+        div.col-lg-12.text-center id="view-more"
+          = link_to('Ver más...', url_for(page: @books.current_page + 1), remote: true)
