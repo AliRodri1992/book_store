@@ -9,6 +9,11 @@ class Book < ApplicationRecord
 
   # validates_format_of :title, with: /^([a-z A-ZñáéíóúÑÁÉÍÓÚ[0-9]\s]+)$/, multiline: true, :allow_blank => true
 
+  def self.search(term)
+    return scoped unless term.present?
+    joins(:asign_books => :store).where("UPPER(books.title) ILIKE ? OR UPPER(books.author) ILIKE ? OR UPPER(stores.codename) ILIKE ?", "%"+term+"%", "%"+term+"%", "%"+term+"%")
+  end
+
   def self.get_index_columns
     exclude_columns = %w[id created_at updated_at]
     columns = Book.column_names
