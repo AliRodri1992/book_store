@@ -1,0 +1,25 @@
+table.table.table-striped.table-no-bordered.table-hover.dataTable.dtr-inline cellspacing="0" width="100%" style="width: 100%" role="grid" aria-describedby="datatables_info" id="datatables1"
+  thead
+    tr role="row"
+      - @columns.each do |column|
+        th = t('activerecord.attributes.' + @class_name.downcase + "." + column)
+      th.text-center Opciones
+  tbody
+    - unless @objects.blank?
+      - @objects.each do |object|
+        tr role="row"
+          - @columns.each do |column|
+            td = object[column]
+          td.td-actions.text-center
+            = link_to({action: :show, controller: :catalogs, class_name: @class_name, id: object.id}, class: "btn btn-success btn-link btn-xs", 'data-original-title': "Mostrar #{t("activerecord.model." + @class_name.downcase + ".one")}", rel: 'tooltip', remote: true) do
+              = icon('fas', 'eye')
+            = link_to({action: :edit, controller: :catalogs, class_name: @class_name, id: object.id}, class: "btn btn-info btn-link btn-xs", 'data-original-title': "Editar #{t("activerecord.model." + @class_name.downcase + ".one")}", rel: 'tooltip', remote: true) do
+              = icon('fas', 'edit')
+            = link_to({action: :find, controller: :catalogs, class_name: @class_name, id: object.id}, class: "btn btn-danger btn-link btn-xs", 'data-original-title': "Eliminar #{t("activerecord.model." + @class_name.downcase + ".one")}", rel: 'tooltip', remote: true) do
+              = icon('fas', 'trash')
+    - else
+      tr
+        - if @class_name == "Store"
+          td.text-center colspan="4" No existen registros de tiendas.
+        - else
+          td.text-center colspan="4" No exiten registros de libros.

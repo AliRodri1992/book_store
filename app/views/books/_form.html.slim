@@ -1,0 +1,53 @@
+- errors_for_title = []
+- errors_for_author = []
+- errors_for_year = []
+
+- for i in @object.errors.messages
+  - errors_for_title << i[1] if i[0] == 'title'.to_sym
+  - errors_for_author << i[1] if i[0] == 'author'.to_sym
+  - errors_for_year << i[1] if i[0] == 'year'.to_sym
+
+div.row
+  div.col-lg-12
+    h6.text-primary Ingrese la información requerida.
+    hr.hr-m
+= form_tag({action: accion, controller: :catalogs}, remote: true, id: "books_form" ) do
+  div.row
+    div.col-lg-12.pr-1
+      div.form-group
+        label Título
+        = text_field :book, :title, maxlength: 50, class: 'form-control', placeholder: 'Ingrese el título del libro.', value: @object.title
+        div.text-error-form id="div_errors_for_book_title"
+          - for e_array in errors_for_title
+            javascript:
+              $("#book_title").addClass("is-invalid")
+            - for e in e_array
+              = e
+              br
+  div.row
+    div.col-lg-12.pr-1
+      div.form-group
+        label Autor (es)
+        = text_field :book, :author, maxlength: 50, class: 'form-control', placeholder: 'Ingrese el (los) autor (es) del libro.', value: @object.author
+        div.text-error-form id="div_errors_for_book_author"
+          - for e_array in errors_for_author
+            javascript:
+                $("#book_author").addClass("is-invalid")
+            - for e in e_array
+              = e
+              br
+  div.row
+    div.col-lg-12.pr-1
+      div.form-group
+        label Año de Publicación
+        = number_field :book, :year, min: 1900, max: 2030, class: 'form-control', placeholder: 'Ingrese el año de publicación del libro.', value: @object.year
+        div.text-error-form id="div_errors_for_book_year"
+          - for e_array in errors_for_year
+            javascript:
+                $("#book_year").addClass("is-invalid")
+            - for e in e_array
+              = e
+              br
+  = hidden_field_tag :id, @object.id
+  = hidden_field_tag :class_name, @class_name
+  = submit_tag '', class: "btn btn-primary", id: 'btn-origen-guardar', style: "display: none;"

@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Store Book
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    div.wrapper
+      div.sidebar data-color="blue"
+        = render 'shared/sidebar'
+      div.main-panel
+        = render 'shared/navbar'
+        div id="flash_messages_div"
+          = render 'shared/flash_messages'
+        div.content
+          div.container-fluid
+            div.row
+              = yield
+    = render 'shared/modal'

@@ -1,0 +1,50 @@
+div.sidebar-wrapper
+  div.logo
+    a href="/" class="simple-text logo-mini" T
+    a href="/" class="simple-text logo-normal" Tienda
+  div.user
+    div.photo
+      = image_tag("venom.jpg", class: "rounded-circle")
+    div.info
+      a data-toggle="collapse" href="#collapseExample"
+        span
+          = "Ivan Rodriguez"
+          b.caret
+      div class="collapse" id="collapseExample" style=""
+        ul class="nav"
+          li
+            a class="profile-dropdown" href="#pablo"
+              span class="sidebar-mini" MP
+              span class="sidebar-normal" My Profile
+          li
+            a class="profile-dropdown" href="#pablo"
+              span class="sidebar-mini" EP
+              span class="sidebar-normal" Edit Profile
+  ul.nav
+    li.nav-item
+      a.nav-link data-toggle="collapse" href="#componentsExamples"
+        = icon('fas','book')
+        p
+          = "Catálogos"
+          b.caret
+      div.collapse id="componentsExamples"
+        ul.nav
+          li.nav-item
+            a.nav-link href="/catalogs?class_name=Store"
+              span.sidebar-mini T
+              span.sidebar-normal Tiendas
+          li.nav-item
+            a.nav-link href="/catalogs?class_name=Book"
+              span.sidebar-mini L
+              span.sidebar-normal Libros
+      a.nav-link data-toggle="collapse" href="#componentsRegister"
+        = icon('fas', 'file-alt')
+        p
+          = "Registros"
+          b.caret
+      div.collapse id="componentsRegister"
+        ul.nav
+          li.nav-item
+            a.nav-link href="/asign_books"
+              span.sidebar-mini AL
+              span.sidebar-normal Asignar Libros

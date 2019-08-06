@@ -1,0 +1,16 @@
+table.table.table-bordered.table-sm.th-view
+  tbody
+    tr
+      td.text-center colspan="12" Información del Libro
+    tr
+      th.text-right colspan="3" Título
+      td colspan="9"
+        = @object.title
+    tr
+      th.text-right colspan="3" Autor (es)
+      td colspan="9"
+        = @object.author
+    tr
+      th.text-right colspan="3" Año de Publicación
+      td colspan="9"
+        = @object.year

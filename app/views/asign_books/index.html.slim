@@ -1,0 +1,13 @@
+div.col-md-12
+  div.card.data-tables
+    div.card-header
+      div.row
+        div.col-md-6
+          h4.card-title
+            h4.card-title Asignar Libros a Tiendas
+            p.card-category Lista de Registro
+        div.col-md-6.text-right
+          a class="btn btn-primary" data-remote="true" href="/asign_books/new" Registrar
+    div.card-body.table-striped.table-no-bordered.table-hover.dataTable.dtr-inline.table-full-width
+      div.fresh-datatables
+        = render 'lista'

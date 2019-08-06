@@ -1,0 +1,7 @@
+example_id                                 | status | run_time        |
+------------------------------------------ | ------ | --------------- |
+./spec/features/stores/create_spec.rb[1:1] | failed | 41.31 seconds   |
+./spec/models/book_spec.rb[1:1:1]          | passed | 0.32968 seconds |
+./spec/models/book_spec.rb[1:1:2]          | passed | 0.00351 seconds |
+./spec/models/store_spec.rb[1:1:1]         | passed | 0.24165 seconds |
+./spec/models/store_spec.rb[1:1:2]         | passed | 0.00555 seconds |
