@@ -8,11 +8,7 @@ html
   body
     div.wrapper
       div.sidebar data-color="blue"
-        div.sidebar-wrapper
-          div.logo
-          div.user
-          ul.nav
-            li.nav-item
+        = render 'shared/sidebar'
       div.main-panel
         = render 'shared/navbar'
         div id="flash_messages_div"
