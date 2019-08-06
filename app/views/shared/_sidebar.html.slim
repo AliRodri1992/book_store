@@ -37,3 +37,14 @@ div.sidebar-wrapper
             a.nav-link href="/catalogs?class_name=Book"
               span.sidebar-mini L
               span.sidebar-normal Libros
+      a.nav-link data-toggle="collapse" href="#componentsRegister"
+        = icon('fas', 'file-alt')
+        p
+          = "Registros"
+          b.caret
+      div.collapse id="componentsRegister"
+        ul.nav
+          li.nav-item
+            a.nav-link href="/asign_books"
+              span.sidebar-mini AL
+              span.sidebar-normal Asignar Libros

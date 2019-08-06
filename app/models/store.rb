@@ -1,4 +1,7 @@
 class Store < ApplicationRecord
+  has_many :asign_books
+  has_many :books, through: :asign_books
+
   validates :codename, presence: true
   validates :codename, :length => { :minimum => 5 }, allow_blank: true
   validates :address, :length => { :minimum => 10 }, allow_blank: true

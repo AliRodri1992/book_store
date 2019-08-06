@@ -1,4 +1,4 @@
-table.table.table-striped.table-no-bordered.table-hover.dataTable.dtr-inline cellspacing="0" width="100%" style="width: 100%" role="grid" aria-describedby="datatables_info" id="datatables"
+table.table.table-striped.table-no-bordered.table-hover.dataTable.dtr-inline cellspacing="0" width="100%" style="width: 100%" role="grid" aria-describedby="datatables_info" id="datatables1"
   thead
     tr role="row"
       - @columns.each do |column|
@@ -23,18 +23,3 @@ table.table.table-striped.table-no-bordered.table-hover.dataTable.dtr-inline cel
           td.text-center colspan="4" No existen registros de tiendas.
         - else
           td.text-center colspan="4" No exiten registros de libros.
-javascript:
-    $(document).ready(function () {
-        $('#datatables').DataTable({
-            bLengthChange: false,
-            ordering: false,
-            pagingType: "full_numbers",
-            responsive: true,
-            language: {
-                search: "_INPUT_",
-                searchPlaceholder: "Buscar...",
-            }
-
-        });
-        var table = $('#datatables').DataTable();
-    });

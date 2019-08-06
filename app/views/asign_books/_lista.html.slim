@@ -1,0 +1,23 @@
+table.table.table-striped.table-no-bordered.table-hover.dataTable.dtr-inline cellspacing="0" width="100%" style="width: 100%" role="grid" aria-describedby="datatables_info" id="datatables2"
+  thead
+    tr role="row"
+      th = t('activerecord.attributes.assign_book.book_id')
+      th = t('activerecord.attributes.assign_book.store_id')
+      th = t('activerecord.attributes.assign_book.quantity')
+      th.text-center Opciones
+  tbody
+    - unless  @assign_books.blank?
+      - @assign_books.each do |assign_book|
+        tr role='row'
+          td = assign_book.book.title
+          td = assign_book.store.codename
+          td = assign_book.quantity
+          td.td-actions.text-center
+            = link_to({action: :show, id: assign_book.id}, class: "btn btn-success btn-link btn-xs", 'data-original-title': "Mostrar Asignación", rel: 'tooltip', remote: true) do
+              = icon('fas', 'eye')
+            = link_to({action: :edit, id: assign_book.id}, class: "btn btn-info btn-link btn-xs", 'data-original-title': "Editar Asignación", rel: 'tooltip', remote: true) do
+              = icon('fas', 'edit')
+            = link_to({action: :find, id: assign_book.id}, class: "btn btn-danger btn-link btn-xs", 'data-original-title': "Eliminar Asignación", rel: 'tooltip', remote: true) do
+              = icon('fas', 'trash')
+
+
