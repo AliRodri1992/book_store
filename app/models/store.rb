@@ -1,5 +1,6 @@
 class Store < ApplicationRecord
-  paginates_per 10
+  has_many :asign_books
+  has_many :books, through: :asign_books
 
   validates :codename, presence: true
   validates :codename, :length => { :minimum => 5 }, allow_blank: true

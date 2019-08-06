@@ -1,0 +1,71 @@
+- errors_for_quantity = []
+- errors_for_store_id = []
+- errors_for_book_id = []
+
+- for i in @assign_book.errors.messages
+  - errors_for_quantity << i[1] if i[0] == 'quantity'.to_sym
+  - errors_for_book_id << i[1] if i[0] == 'book'.to_sym
+  - errors_for_store_id << i[1] if i[0] == 'store'.to_sym
+
+- unless @books.blank?
+  - unless @stores.blank?
+    div.row
+      div.col-lg-12
+        h6.text-primary Ingrese la información requerida.
+        hr.hr-m
+    = form_tag({action: accion}, remote: true, id: "assign_book_form" ) do
+      div.row
+        div.col-lg-12
+          div.form-group
+            label
+              = t("activerecord.attributes.assign_book.store_id")
+            = select :asign_book, :store_id, options_for_select(@stores.collect {|store| [store.codename, store.id]}, @assign_book.store_id), {include_blank: "Seleccione una tienda."}, {class: 'form-control', data: {'live-search': "true"}}
+            div.text-error-form id="div_errors_for_assign_book_store_id"
+              - for e_array in errors_for_store_id
+                javascript:
+                    $("#asign_book_store_id").addClass("is-invalid");
+                - for e in e_array
+                  = e
+                  br
+      div.row
+        div.col-lg-12
+          div.form-group
+            label
+              = t("activerecord.attributes.assign_book.book_id")
+            = select :asign_book, :book_id, options_for_select(@books.collect {|book| [book.title, book.id]}, @assign_book.book_id), {include_blank: 'Seleccione un libro'}, {class: 'form-control'}
+            div.text-error-form id="div_errors_for_assign_book_book_id"
+              - for e_array in errors_for_book_id
+                javascript:
+                  $("#asign_book_book_id").addClass("is-invalid");
+                - for e in e_array
+                  = e
+                  br
+      div.row
+        div.col-lg-12
+          div.form-group
+            label
+              = t('activerecord.attributes.assign_book.quantity')
+            = number_field :asign_book, :quantity, min: 1, max: 999, class: 'form-control', placeholder: 'Ingrese la cantidad de libros.', value: @assign_book.quantity
+            div.text-error-form id="div_errors_for_assign_book_quantity"
+              - for e_array in errors_for_quantity
+                javascript:
+                  $("#asign_book_quantity").addClass("is-invalid");
+                - for e in e_array
+                  = e
+                  br
+      = hidden_field_tag :id, @assign_book.id
+      = submit_tag '', class: "btn btn-primary", id: 'btn-origen-guardar', style: "display: none;"
+  - else
+    div.row
+      div.col-lg-12
+        h2
+          p.category
+            = "No existen tiendas. De clic en"
+            = link_to t('activerecord.model.store.other'), catalogs_path(class_name: 'Store')
+- else
+  div.row
+    div.col-lg-12
+      h2
+        p.category
+          = "No existen libros. De clic en "
+          = link_to t('activerecord.model.book.other'), catalogs_path(class_name: 'Book')

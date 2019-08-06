@@ -1,6 +1,6 @@
 - if page.current?
-  li.page-item.active
-    = content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'page-link'
+  li.page-item.active.paginate_button
+    = content_tag :a, page, data: { remote: remote }, rel: page.rel, class: 'page-link', 'data-dt-idx': "0", tabindex: '0'
 - else
-  li.page-item
-    = link_to page, url, remote: remote, rel: page.rel, class: 'page-link'
+  li.page-item.paginate_button
+    = link_to page, url, remote: remote, rel: page.rel, class: 'page-link', 'data-dt-idx': "0", tabindex: '0'

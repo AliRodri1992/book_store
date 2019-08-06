@@ -1,0 +1,3 @@
+show_content_modal_assign("<%= t("activerecord.model.assign_book.one") %>", 'create', <%= @books.size %>, <%= @stores.size %>);
+$("#modalCatalogos").modal("show");
+$("#modal_catalogos_content").html("<%= j render partial: "form", locals: {accion: 'create'} %>");

@@ -1,0 +1,16 @@
+table.table.table-bordered.table-sm.th-view
+  tbody
+    tr
+      td.text-center colspan="12" Información de la Asignación
+    tr
+      th.text-right colspan="3" Título
+      td colspan="9"
+        = @assign_book.book.title
+    tr
+      th.text-right colspan="3" Tienda
+      td colspan="9"
+        = @assign_book.store.codename
+    tr
+      th.text-right colspan="3" Cantidad
+      td colspan="9"
+        = @assign_book.quantity

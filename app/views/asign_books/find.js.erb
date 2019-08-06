@@ -1,0 +1,10 @@
+show_content_modal("<%= t("activerecord.model.assign_book.one") %>", 'delete');
+$("#modal_catalogos_content").html("<h5>¿Está seguro que desea eliminar el registro de <strong><%= @assign_book.book.title %></strong> de la tabla?</h5>");
+$("#modalCatalogos").modal("show");
+
+$("#btn_modal_eliminar").click(function () {
+    id = <%= @assign_book.id %>;
+    $.get("/asign_books/destroy", {id: id}).done(function (data) {
+        location.reload();
+    });
+});

@@ -174,6 +174,9 @@ es:
       book:
         one: 'Libro'
         other: 'Libros'
+      assign_book:
+        one: 'Asignar Libro'
+        other: 'Asignar Libros'
     attributes:
       store:
         codename: "Nombre Clave"
@@ -183,6 +186,10 @@ es:
         title: 'Título'
         author: 'Autor (es)'
         year: 'Año'
+      assign_book:
+        book_id: 'Libro'
+        store_id: 'Tienda'
+        quantity: 'Cantidad'
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -190,6 +197,14 @@ es:
           has_one: 'No se puede eliminar el registro porque existe un %{record} dependiente.'
           has_many: 'No se puede eliminar el registro porque existen %{record} dependientes.'
       models:
+        asign_book:
+          attributes:
+            book:
+              required: 'Libro no puede estar vacío.'
+            store:
+              required: 'Tienda no puede estar vacío.'
+            quantity:
+              blank: 'Cantidad no puede estar vacío.'
         book:
           attributes:
             title:
