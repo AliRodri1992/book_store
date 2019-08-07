@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "search_books/search"
+
   get "asign_books" => "asign_books#index"
   get "asign_books/index"
   get "asign_books/new"

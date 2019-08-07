@@ -5825,7 +5825,7 @@ fieldset[disabled] .form-control {
 }
 
 .card-stats .card-body .numbers {
-    text-align: right;
+    text-align: center;
 }
 
 .card-stats .card-body .numbers p {

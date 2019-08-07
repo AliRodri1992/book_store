@@ -13,10 +13,10 @@ nav.navbar.navbar-expand-lg
       span.navbar-toggler-bar.burger-lines
     div.collapse.navbar-collapse.justify-content-end
       ul.nav.navbar-nav.mr-auto
-        form.navbar-form.navbar-left.navbar-search-form role="search"
+        form.navbar-form.navbar-left.navbar-search-form role="search" action="/search_books/search"
           div.input-group
             = icon('fas', 'search')
-            input.form-control placeholder="Buscar..." type="text"
+            input.form-control placeholder="Buscar..." type="search" id="term" name="term"
       ul.navbar-nav
         li class="nav-item dropdown"
           a class="nav-link dropdown-toggle" href="https://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
