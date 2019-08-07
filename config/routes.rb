@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "search_books/search"
 
   get "asign_books" => "asign_books#index"
