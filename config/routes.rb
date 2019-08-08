@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   post "catalogs/create"
   post "catalogs/update"
 
+  get 'home/show_perfil'
+
   root 'home#index'
 end

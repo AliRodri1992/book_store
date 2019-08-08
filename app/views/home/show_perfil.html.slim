@@ -1,0 +1,14 @@
+div.col-md-12
+  div.card
+    div.card-header
+      h4.card-title Ver Perfil
+    div.card-body
+      div.row
+        div.col-md-5.pr-1
+          div.form-group
+            label Correo Electrónico
+            input.form-control type="text" value="#{@user.email}" readonly="readonly"
+        div.col-md-3.pr-1
+          div.form-group
+            label Nombre de Usuario
+            input.form-control type="text" value="#{@user.username}" readonly="readonly"
