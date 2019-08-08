@@ -245,6 +245,11 @@ es:
         book_id: 'Libro'
         store_id: 'Tienda'
         quantity: 'Cantidad'
+      user:
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
+        email: 'Correo electrónico'
+        password_confirmation: 'Confirmar Contraseña'
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -281,3 +286,23 @@ es:
             phone:
               too_short: "Teléfono demasiado corto (6 caracteres mínimo)."
               invalid: "Teléfono no puede conterner letras ni caracteres especiales."
+        user:
+          attributes:
+            username:
+              taken: 'Nombre de usuario existente.'
+              blank: 'Nombre de usuario no debe ser vacío.'
+              invalid: 'Nombre de usuario inválido.'
+            email:
+              taken: 'Correo electrónico registrado.'
+              invalid: 'Correo electrónico inválido.'
+              blank: 'Correo electrónico no puede estar vacío.'
+              not_found: 'Correo electrónico no existente.'
+            password:
+              blank: 'Contraseña no puede estar vacía.'
+              too_short: 'Contraseña demasiado corto (8 caracteres mínimo).'
+            password_confirmation:
+              blank: 'Confirmar contraseña no puede estar vacía.'
+              confirmation: 'Confirmar contraseña no coincide.'
+            reset_password_token:
+              blank: 'Confirmar nueva contraseña no puede estar vacía.'
+              confirmation: 'Confirmar nueva contraseña no coincide.'
