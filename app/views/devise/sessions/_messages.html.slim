@@ -1,0 +1,16 @@
+- class_name = "alert-danger" if class_name == "alert-warning"
+div class="message alert #{class_name} alert-dismissable"
+  button type="button" class="close" data-dismiss="alert" &times;
+  span
+    - if msg.instance_of?(Array)
+      msg.each do |m|
+        = m
+        br
+    - else
+      = msg
+javascript:
+  $(document).ready(function () {
+      setTimeout(function () {
+          $(".message").fadeOut(1500);
+      }, 3000);
+  });

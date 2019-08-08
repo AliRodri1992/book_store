@@ -4,14 +4,18 @@ div.col-md-4.col-sm-6.ml-auto.mr-auto
       div.card-header
         h3.header.text-center Inicio de Sesión
       div.card-body
+        - flash.each do |name, msg|
+          = render(partial: "messages", locals: {msg: msg, class_name: flash_class(name)}) if msg != true
         div.form-group
           = f.label :username
           = f.text_field :username, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Ingrese el nombre de usuario'
         div.form-group
           = f.label :password
           = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Ingrese la contraseña'
+        div.form-group
+          = render "devise/shared/links"
       div.card-footer.ml-auto.mr-auto
-        button.btn.btn-warning.btn-wd type="submit" Login
+        button.btn.btn-warning.btn-wd type="submit" Ingresar
 
 javascript:
   $(document).ready(function () {
