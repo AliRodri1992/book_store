@@ -1,0 +1,28 @@
+- unless @books.blank?
+  div.row
+    - @books.each do |book|
+      div.col-lg-4.col-sm-6
+        div.card.card-stats
+          div.card-body
+            div.row
+              div.col-2
+                div.icon-big.text-center.icon-warning
+                  = icon('fas', 'book', class: 'text-warning')
+              div.col-10
+                div.numbers
+                  h6.card-title = book.title
+                div.numbers
+                  h7.card-category = book.author
+                div.numbers
+                  h7.card-category = book.year
+          div.card-footer
+            div.stats
+              - unless book.asign_books.nil?
+                - book.asign_books.each do |assign|
+                  = "Tienda: "
+                  = assign.store.codename
+                  br
+                  = "Cantidad: "
+                  = assign.quantity
+                  br
+- else

@@ -1,0 +1,7 @@
+$('#cardBooks').append("<%=j render(partial: 'books') %>");
+
+<% if @books.current_page == @books.total_pages %>
+  $('#view-more').remove();
+<% else %>
+  $('#view-more a').attr('href', '<%= url_for(page: @books.current_page + 1) %>');
+<% end %>

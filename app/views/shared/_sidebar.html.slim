@@ -8,14 +8,14 @@ div.sidebar-wrapper
     div.info
       a data-toggle="collapse" href="#collapseExample"
         span
-          = "Ivan Rodriguez"
+          = current_user.username
           b.caret
       div class="collapse" id="collapseExample" style=""
         ul class="nav"
           li
-            a class="profile-dropdown" href="#pablo"
+            a class="profile-dropdown" href="/home/show_perfil"
               span class="sidebar-mini" MP
-              span class="sidebar-normal" My Profile
+              span class="sidebar-normal" Mi Perfil
           li
             a class="profile-dropdown" href="#pablo"
               span class="sidebar-mini" EP

@@ -1179,6 +1179,9 @@ input:focus {
     opacity: 1;
 }
 
+.full-page-background {
+    background-image: url('full-screen-image-2.jpg');
+}
 .full-page .full-page-background {
     position: absolute;
     z-index: 1;
@@ -5825,7 +5828,7 @@ fieldset[disabled] .form-control {
 }
 
 .card-stats .card-body .numbers {
-    text-align: right;
+    text-align: center;
 }
 
 .card-stats .card-body .numbers p {
