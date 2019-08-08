@@ -1,4 +1,59 @@
 es:
+  errors:
+    messages:
+      expired: "ha expirado, por favor pide una nueva"
+      not_found: "no encontrado"
+      already_confirmed: "ya fue confirmada. Intenta ingresar."
+      not_locked: "no ha sido bloqueada"
+      not_saved:
+        one: "Ha habido 1 error:"
+        other: "Han habido %{count} errores:"
+  devise:
+    failure:
+      already_authenticated: 'Ya ha iniciado sesión.'
+      unauthenticated: 'Tiene que registrarse o iniciar sesión antes de continuar.'
+      unconfirmed: 'Tiene que confirmar su cuenta antes de continuar.'
+      locked: 'Su cuenta está bloqueada.'
+      invalid: 'Usuario o Contraseña Incorrectos, favor de Verificar.'
+      invalid_token: 'Token de autentificación inválido.'
+      timeout: 'Su sesión ha expirado. Inicie sesión nuevamente.'
+      inactive: 'Su cuenta aun no ha sido activada.'
+      user:
+        not_found_in_database: 'Usuario o Contraseña Incorrectos, favor de Verificar.'
+    sessions:
+      signed_in: 'Ha iniciado sesión correctamente.'
+      signed_out: 'Ha cerrado sesión correctamente.'
+    passwords:
+      send_instructions: 'Recibirá un email con instrucciones para reiniciar su contraseña en unos minutos.'
+      updated: 'Su contraseña fue cambiada correctamente. Ha iniciado sesión.'
+      updated_not_active: 'Su contraseña fue cambiada correctamente.'
+      send_paranoid_instructions: "Si su email existe en el sistema, recibirá instrucciones para recuperar tu contraseña en él"
+    confirmations:
+      send_instructions: 'Recibirá instrucciones para confirmar su cuenta en su email en unos minutos.'
+      send_paranoid_instructions: 'Si su email existe en el sistema, recibirá instrucciones para confirmar su cuenta en tu email en unos minutos.'
+      confirmed: 'Su cuenta fue confirmada. Ha iniciado sesión.'
+    registrations:
+      signed_up: 'Bienvenido! Se ha registrado correctamente.'
+      signed_up_but_unconfirmed: 'Le hemos enviado un email con instrucciones para que confirme tu cuenta.'
+      signed_up_but_inactive: 'Se ha registrado correctamente, pero su cuenta aun no ha sido activada.'
+      signed_up_but_locked: 'Se ha registrado correctamente, pero su cuenta está bloqueada.'
+      updated: 'Ha actualizado su cuenta correctamente.'
+      update_needs_confirmation: "Ha actualizado su cuenta correctamente, pero se debe revalidar su email. Revise su correo para confirmar la dirección."
+      destroyed: 'Su cuenta ha sido eliminada correctamente.'
+    unlocks:
+      send_instructions: 'Recibirá un email con instrucciones para desbloquear su cuenta en unos minutos'
+      unlocked: 'Su cuenta ha sido desbloqueada. Inicie sesión para continuar.'
+      send_paranoid_instructions: 'Si su cuenta existe, recibirá instrucciones para desbloquear su cuenta en unos minutos'
+    omniauth_callbacks:
+      success: 'Se ha autentificado correctamente con su cuenta de %{kind}.'
+      failure: 'No se pudo autentificar tu cuenta de %{kind} por la siguiente razón: %{reason}.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones de confirmación'
+      reset_password_instructions:
+        subject: 'Instrucciones de cambio de contraseña'
+      unlock_instructions:
+        subject: 'Instrucciones de desbloqueo'
   date:
     abbr_day_names:
     - dom
@@ -190,6 +245,11 @@ es:
         book_id: 'Libro'
         store_id: 'Tienda'
         quantity: 'Cantidad'
+      user:
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
+        email: 'Correo electrónico'
+        password_confirmation: 'Confirmar Contraseña'
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -226,3 +286,23 @@ es:
             phone:
               too_short: "Teléfono demasiado corto (6 caracteres mínimo)."
               invalid: "Teléfono no puede conterner letras ni caracteres especiales."
+        user:
+          attributes:
+            username:
+              taken: 'Nombre de usuario existente.'
+              blank: 'Nombre de usuario no debe ser vacío.'
+              invalid: 'Nombre de usuario inválido.'
+            email:
+              taken: 'Correo electrónico registrado.'
+              invalid: 'Correo electrónico inválido.'
+              blank: 'Correo electrónico no puede estar vacío.'
+              not_found: 'Correo electrónico no existente.'
+            password:
+              blank: 'Contraseña no puede estar vacía.'
+              too_short: 'Contraseña demasiado corto (8 caracteres mínimo).'
+            password_confirmation:
+              blank: 'Confirmar contraseña no puede estar vacía.'
+              confirmation: 'Confirmar contraseña no coincide.'
+            reset_password_token:
+              blank: 'Confirmar nueva contraseña no puede estar vacía.'
+              confirmation: 'Confirmar nueva contraseña no coincide.'

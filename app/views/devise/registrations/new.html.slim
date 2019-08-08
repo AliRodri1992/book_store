@@ -1,0 +1,67 @@
+- errors_for_username = []
+- errors_for_email = []
+- errors_for_password = []
+- errors_for_password_confirmation = []
+
+- for i in resource.errors.messages
+  - errors_for_username << i[1] if i[0] == 'username'.to_sym
+  - errors_for_email << i[1] if i[0] == 'email'.to_sym
+  - errors_for_password << i[1] if i[0] == 'password'.to_sym
+  - errors_for_password_confirmation << i[1] if i[0] == 'password_confirmation'.to_sym
+
+div.col-md-4.col-sm-6.ml-auto.mr-auto
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    div.card.card-login.card-hidden
+      div.card-header
+        h3.header.text-center Registro
+      div.card-body
+        div.form-group
+          = f.label :username
+          = f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'Ingrese el nombre de usuario.'
+          div.text-error-form id="div_errors_for_user_username"
+            - for e_array in errors_for_username
+              javascript:
+                $("#user_username").addClass("is-invalid");
+              - for e in e_array
+                = e
+                br
+        div.form-group
+          = f.label :email
+          = f.text_field :email, autofocus: true, class: 'form-control', placeholder: 'Ingrese el correo electrónico.'
+          div.text-error-form id="div_errors_for_user_email"
+            - for e_array in errors_for_email
+              javascript:
+                  $("#user_email").addClass("is-invalid");
+              - for e in e_array
+                = e
+                br
+        div.form-group
+          = f.label :password
+          = f.password_field :password, class: 'form-control', placeholder: 'Ingrese la contraseña.'
+          div.text-error-form id="div_errors_for_user_password"
+            - for e_array in errors_for_password
+              javascript:
+                  $("#user_password").addClass("is-invalid");
+              - for e in e_array
+                = e
+                br
+        div.form-group
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Ingrese la confirmación de la contraseña.'
+          div.text-error-form id="div_errors_for_user_password_confirmation"
+            - for e_array in errors_for_password_confirmation
+              javascript:
+                  $("#user_password_confirmation").addClass("is-invalid");
+              - for e in e_array
+                = e
+                br
+        div.form-group
+          = render "devise/shared/links"
+      div.card-footer.ml-auto.mr-auto
+        button.btn.btn-warning.btn-wd type="submit" Registrar
+javascript:
+    $(document).ready(function () {
+        setTimeout(function () {
+            $('.card').removeClass('card-hidden');
+        }, 700);
+    });

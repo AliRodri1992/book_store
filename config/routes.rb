@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "search_books/search"
 
   get "asign_books" => "asign_books#index"
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   get "catalogs/destroy"
   post "catalogs/create"
   post "catalogs/update"
+
+  get 'home/show_perfil'
 
   root 'home#index'
 end

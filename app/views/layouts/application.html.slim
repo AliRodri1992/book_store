@@ -5,16 +5,26 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    div.wrapper
-      div.sidebar data-color="blue"
-        = render 'shared/sidebar'
-      div.main-panel
-        = render 'shared/navbar'
-        div id="flash_messages_div"
-          = render 'shared/flash_messages'
-        div.content
-          div.container-fluid
-            div.row
+  - if current_user
+    body
+      div.wrapper
+        div.sidebar data-color="blue"
+          = render 'shared/sidebar'
+        div.main-panel
+          = render 'shared/navbar'
+          div id="flash_messages_div"
+            = render 'shared/flash_messages'
+          div.content
+            div.container-fluid
+              div.row
+                = yield
+          = render "shared/footer"
+      = render 'shared/modal'
+  - else
+    body
+      div.wrapper.wrapper-full-page
+        div.full-page.section-image data-color="black" data-image="#{url_image_path("full-screen-image-2.jpg")}"
+          div.content
+            div.container
               = yield
-    = render 'shared/modal'
+          div.full-page-background
