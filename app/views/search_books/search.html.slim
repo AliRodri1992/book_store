@@ -4,8 +4,7 @@ div.col-md-12
       div.row
         div.col-md-6
           h4.card-title Resultados
-    div.card-body id="cardBooks"
+    div.card-body
       = render 'books'
-    - unless @books.current_page == @books.total_pages
-      div.col-lg-12.text-center id="view-more"
-        = link_to('Ver más...', url_for(page: @books.current_page + 1), class: 'btn btn-info', remote: true)
+      div.col-lg-12.text-center
+        = paginate @books
