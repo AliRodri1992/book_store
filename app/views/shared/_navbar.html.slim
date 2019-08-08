@@ -26,6 +26,7 @@ nav.navbar.navbar-expand-lg
               i.fas.fa-tools
               = " Configuraciones"
             div class="divider"
-            a href="#" class="dropdown-item text-danger"
-              = icon('fas','sign-out-alt')
-              = "Log out"
+            - if signed_in?
+              = link_to '#', data: {href: destroy_user_session_path, toggle: "modal", target: "#modalSesionDestroy"}, class: "dropdown-item text-danger" do
+                = icon('fas','sign-out-alt')
+                = "Log out"

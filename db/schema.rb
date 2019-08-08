@@ -42,18 +42,22 @@ ActiveRecord::Schema.define(version: 2019_08_07_042348) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "nickname"
+    t.string "username"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.bigint "rol_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["rol_id"], name: "index_users_on_rol_id"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "asign_books", "books"

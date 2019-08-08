@@ -1,0 +1,21 @@
+div.col-md-4.col-sm-6.ml-auto.mr-auto
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    div.card.card-login.card-hidden
+      div.card-header
+        h3.header.text-center Inicio de Sesión
+      div.card-body
+        div.form-group
+          = f.label :username
+          = f.text_field :username, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Ingrese el nombre de usuario'
+        div.form-group
+          = f.label :password
+          = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Ingrese la contraseña'
+      div.card-footer.ml-auto.mr-auto
+        button.btn.btn-warning.btn-wd type="submit" Login
+
+javascript:
+  $(document).ready(function () {
+      setTimeout(function () {
+          $('.card').removeClass('card-hidden');
+      }, 700);
+  });

@@ -1179,6 +1179,9 @@ input:focus {
     opacity: 1;
 }
 
+.full-page-background {
+    background-image: url('full-screen-image-2.jpg');
+}
 .full-page .full-page-background {
     position: absolute;
     z-index: 1;
